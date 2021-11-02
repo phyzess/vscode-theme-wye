@@ -1,0 +1,21 @@
+{
+    "name": "wye",
+    "displayName": "WYE",
+    "description": "wye use theme",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "wye",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wye-color-theme.json"
+            }
+        ]
+    }
+}
