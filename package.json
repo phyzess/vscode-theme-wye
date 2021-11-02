@@ -1,8 +1,10 @@
 {
     "name": "wye",
-    "displayName": "WYE",
-    "description": "wye use theme",
-    "version": "0.0.1",
+    "displayName": "Wye",
+    "description": "wye change theme~",
+    "version": "0.0.2",
+    "publisher": "phyzess",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.61.0"
     },
@@ -17,5 +19,9 @@
                 "path": "./themes/wye-color-theme.json"
             }
         ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:phyzess/vscode-theme-wye.git"
     }
 }
