@@ -2,7 +2,7 @@
   "name": "wye",
   "displayName": "Wye",
   "description": "wye change theme~",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "publisher": "phyzess",
   "license": "MIT",
   "engines": {
@@ -23,14 +23,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Wye Light",
-        "uiTheme": "vs",
-        "path": "./themes/wye-light.json"
-      },
-      {
         "label": "Wye Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/wye-dark.json"
+      },
+      {
+        "label": "Wye Light",
+        "uiTheme": "vs",
+        "path": "./themes/wye-light.json"
       },
       {
         "label": "Wye Black",

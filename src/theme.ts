@@ -139,11 +139,11 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       "tab.activeBackground": background,
       "tab.hoverBackground": activeBackground,
       "tab.unfocusedHoverBackground": background,
-      "tab.border": border,
+      "tab.border": background,
       "tab.unfocusedActiveBorderTop": border,
-      "tab.activeBorder": border,
+      "tab.activeBorder": primary,
       "tab.unfocusedActiveBorder": border,
-      "tab.activeBorderTop": secondaryForeground,
+      "tab.activeBorderTop": background,
 
       "breadcrumb.foreground": primer.gray[5],
       "breadcrumb.focusForeground": foreground,
@@ -161,7 +161,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       "editorIndentGuide.background": pick({ light: "#00000015", dark: "#ffffff15" }),
       "editorIndentGuide.activeBackground": pick({ light: "#00000030", dark: "#ffffff30" }),
       "editorWhitespace.foreground": pick({ light: "#00000015", dark: "#ffffff15" }),
-      // 'editorCursor.foreground': primary,
+      "editorCursor.foreground": primary,
 
       "editor.findMatchBackground": pick({ light: "#e6cc7744", dark: "#e6cc7722" }),
       "editor.findMatchHighlightBackground": pick({ light: "#e6cc7766", dark: "#e6cc7744" }),

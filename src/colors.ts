@@ -53,10 +53,10 @@ export const WyeThemes = {
   secondaryForeground: ["#dedcd590", "#393a3490"],
   ignored: ["#dedcd530", "#393a3450"],
   faded: ["#dedcd510", "#393a3410"],
-  border: ["#191919", "#f0f0f0"],
+  border: ["#2a2a2a", "#f0f0f0"],
 
   background: ["#18191a", "#ffffff"],
-  activeBackground: ["#181818", "#f7f7f7"],
+  activeBackground: ["#1e1f20", "#f7f7f7"],
 
   lowBackground: ["#222", "#F1F0E9"],
   lowActiveBackground: ["#292929", "#E7E5DB"],
