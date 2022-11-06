@@ -1,27 +1,69 @@
 {
-    "name": "wye",
-    "displayName": "Wye",
-    "description": "wye change theme~",
-    "version": "0.0.2",
-    "publisher": "phyzess",
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.61.0"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "contributes": {
-        "themes": [
-            {
-                "label": "wye",
-                "uiTheme": "vs-dark",
-                "path": "./themes/wye-color-theme.json"
-            }
-        ]
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:phyzess/vscode-theme-wye.git"
-    }
+  "name": "wye",
+  "displayName": "Wye",
+  "description": "wye change theme~",
+  "version": "0.0.3",
+  "publisher": "phyzess",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "wye",
+    "light",
+    "dark"
+  ],
+  "files": [
+    "themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Wye Light",
+        "uiTheme": "vs",
+        "path": "./themes/wye-light.json"
+      },
+      {
+        "label": "Wye Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wye-dark.json"
+      },
+      {
+        "label": "Wye Black",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wye-black.json"
+      },
+      {
+        "label": "Wye Light Soft",
+        "uiTheme": "vs",
+        "path": "./themes/wye-light-soft.json"
+      },
+      {
+        "label": "Wye Dark Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/wye-dark-soft.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:phyzess/vscode-theme-wye.git"
+  },
+  "scripts": {
+    "build": "esno src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
+    "vscode:prepublish": "pnpm run build",
+    "release": "pnpm run build && pnpm dlx bumpp --commit --tag --push --all && vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "esno": "^0.16.3",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.8.4",
+    "vsce": "^2.13.0"
+  }
 }
