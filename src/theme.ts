@@ -30,9 +30,9 @@ export default function getTheme({ style, name, soft = false, black = false }) {
     ? wye("lowActiveBackground")
     : wye("activeBackground");
 
-  const selectionBackgroundInActive = pick({ light: "#22222208", dark: "#eeeeee08" });
-  const selectionBackgroundActive = pick({ light: "#22222215", dark: "#eeeeee15" });
-  const selectionBackground = pick({ light: "#22222215", dark: "#eeeeee15" });
+  const selectionBackgroundInActive = pick({ light: "#22222208", dark: "#2f3e46" });
+  const selectionBackgroundActive = pick({ light: "#22222215", dark: "#52796f" });
+  const selectionBackground = pick({ light: "#22222215", dark: "#354f52" });
 
   const theme = {
     name,
@@ -81,10 +81,10 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       "titleBar.border": activeBackground,
 
       "activityBar.foreground": foreground,
-      "activityBar.inactiveForeground": wye("ignored"),
+      "activityBar.inactiveForeground": secondaryForeground,
       "activityBar.background": background,
       "activityBarBadge.foreground": background,
-      "activityBarBadge.background": activeForeground,
+      "activityBarBadge.background": wye("cyan"),
       "activityBar.activeBorder": primary,
       "activityBar.border": border,
 
