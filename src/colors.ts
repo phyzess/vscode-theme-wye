@@ -48,9 +48,9 @@ export const colors = {
 export const WyeThemes = {
   primary: ["#00afb9", "#1c6b48"],
 
-  foreground: ["#dbd7caee", "#393a34"],
+  foreground: ["#f2f2f1", "#393a34"],
   activeForeground: ["#c9d1d9", "#4e4f47"],
-  secondaryForeground: ["#dedcd590", "#393a3490"],
+  secondaryForeground: ["#b3b1ad", "#393a3490"],
   ignored: ["#dedcd530", "#393a3450"],
   faded: ["#dedcd510", "#393a3410"],
   border: ["#2a2a2a", "#f0f0f0"],
@@ -84,7 +84,7 @@ export const WyeThemes = {
   // colors
   green: ["#4d9375", "#1e754f"],
   cyan: ["#5eaab5", "#2993a3"],
-  blue: ["#6394bf", "#296aa3"],
+  blue: ["#296aa3", "#6394bf"],
   red: ["#cb7676", "#ab5959"],
   orange: ["#d4976c", "#a65e2b"],
   yellow: ["#e6cc77", "#bda437"],

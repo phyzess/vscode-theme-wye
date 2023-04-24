@@ -32,7 +32,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
 
   const selectionBackgroundInActive = pick({ light: "#22222208", dark: "#2f3e46" });
   const selectionBackgroundActive = pick({ light: "#22222215", dark: "#52796f" });
-  const selectionBackground = pick({ light: "#22222215", dark: "#354f52" });
+  const selectionBackground = pick({ light: "#22222215", dark: "#252f34" });
 
   const theme = {
     name,
@@ -163,8 +163,8 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       "editorWhitespace.foreground": pick({ light: "#00000015", dark: "#ffffff15" }),
       "editorCursor.foreground": primary,
 
-      "editor.findMatchBackground": pick({ light: "#e6cc7744", dark: "#e6cc7722" }),
-      "editor.findMatchHighlightBackground": pick({ light: "#e6cc7766", dark: "#e6cc7744" }),
+      "editor.findMatchBackground": pick({ light: "#e6cc7744", dark: "#408494cc" }),
+      "editor.findMatchHighlightBackground": pick({ light: "#e6cc7766", dark: "#40849499" }),
       "editor.inactiveSelectionBackground": selectionBackgroundInActive,
       "editor.selectionBackground": selectionBackground,
       "editor.selectionHighlightBackground": selectionBackgroundInActive,
