@@ -46,35 +46,35 @@ export const colors = {
 
 // [dark, light]
 export const WyeThemes = {
-  primary: ["#00afb9", "#1c6b48"],
+  primary: ["#BDE46F", "#1c6b48"],
 
-  foreground: ["#f2f2f1", "#393a34"],
+  foreground: ["#e5e5e5", "#393a34"],
   activeForeground: ["#c9d1d9", "#4e4f47"],
   secondaryForeground: ["#b3b1ad", "#393a3490"],
   ignored: ["#dedcd530", "#393a3450"],
   faded: ["#dedcd510", "#393a3410"],
-  border: ["#2a2a2a", "#f0f0f0"],
+  border: ["#151515", "#f0f0f0"],
 
-  background: ["#18191a", "#ffffff"],
+  background: ["#151515", "#ffffff"],
   activeBackground: ["#252b2a", "#f7f7f7"],
 
   lowBackground: ["#222", "#F1F0E9"],
   lowActiveBackground: ["#292929", "#E7E5DB"],
-  lowBorder: ["#252525", "#E7E5DB"],
+  lowBorder: ["#222", "#E7E5DB"],
 
   comment: ["#758575dd", "#a0ada0"],
-  string: ["#79c0ff", "#b56959"],
+  string: ["#BDE46F", "#b56959"],
   variable: ["#FF9671", "#b07d48"],
   keyword: ["#00afb9", "#1e754f"],
   number: ["#4C9A91", "#2f798a"],
   boolean: ["#00afb9", "#1e754f"],
-  operator: ["#cb7676", "#ab5959"],
+  operator: ["#FE70BC", "#ab5959"],
   function: ["#80a665", "#59873a"],
   constant: ["#c99076", "#a65e2b"],
   class: ["#6893BF", "#5a6aa6"],
   interface: ["#81b29a", "#2e8f82"],
   type: ["#5da9a7", "#2e808f"],
-  builtin: ["#cb7676", "#ab5959"],
+  builtin: ["#FE70BC", "#ab5959"],
   property: ["#79c0ff", "#998418"],
   namespace: ["#db889a", "#b05a78"],
   punctuation: ["#666666", "#999999"],
@@ -82,11 +82,13 @@ export const WyeThemes = {
   regex: ["#c4704f", "#ab5e3f"],
 
   // colors
-  green: ["#4d9375", "#1e754f"],
+  green: ["#BDE46F", "#91C53E"],
   cyan: ["#5eaab5", "#2993a3"],
   blue: ["#296aa3", "#6394bf"],
-  red: ["#cb7676", "#ab5959"],
+  red: ["#F74F5B", "#ab5959"],
   orange: ["#d4976c", "#a65e2b"],
-  yellow: ["#e6cc77", "#bda437"],
+  yellow: ["#F8E330", "#bda437"],
   magenta: ["#d9739f", "#a13865"],
+  purple: ["#AD9CFF", "#a390ff"],
+  pink: ["#FF57B3", "#FE70BC"],
 };

@@ -38,7 +38,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
     name,
     base: pick({ light: "vs", dark: "vs-dark" }),
     colors: {
-      "focusBorder": "#00000000",
+      "focusBorder": wye("pink"),
       foreground,
       "descriptionForeground": secondaryForeground,
       "errorForeground": wye("red"),
