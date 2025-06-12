@@ -61,10 +61,10 @@
     "release": "pnpm run build && pnpm dlx bumpp --commit --tag --push --all && vsce publish --no-dependencies"
   },
   "devDependencies": {
-    "@types/node": "^20.5.7",
-    "@vscode/vsce": "^2.20.1",
-    "esno": "^0.17.0",
-    "nodemon": "^3.0.1",
-    "typescript": "^5.2.2"
+    "@types/node": "^24.0.1",
+    "@vscode/vsce": "^3.5.0",
+    "esno": "^4.8.0",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.8.3"
   }
 }
