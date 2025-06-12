@@ -89,10 +89,10 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'list.inactiveSelectionForeground': foreground,
       'list.activeSelectionForeground': foreground,
       'list.hoverBackground': activeBackground,
-      'list.inactiveSelectionBackground': activeBackground,
-      'list.activeSelectionBackground': activeBackground,
+      'list.inactiveSelectionBackground': black ? '#00B4D830' : pick({ light: '#1c6b4830', dark: '#00B4D830' }),
+      'list.activeSelectionBackground': black ? '#00B4D840' : pick({ light: '#1c6b4840', dark: '#00B4D840' }),
       'list.inactiveFocusBackground': background,
-      'list.focusBackground': black ? '#BDE46F40' : pick({ light: '#1c6b4820', dark: '#BDE46F20' }),
+      'list.focusBackground': black ? '#00B4D850' : pick({ light: '#1c6b4850', dark: '#00B4D850' }),
       'list.focusForeground': primary,
 
       'tree.indentGuidesStroke': pick({ light: primer.gray[2], dark: primer.gray[1] }),
