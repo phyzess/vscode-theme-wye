@@ -122,7 +122,9 @@
     "scrollbarSlider.background": "#dedcd510",
     "scrollbarSlider.hoverBackground": "#dedcd530",
     "scrollbarSlider.activeBackground": "#dedcd530",
-    "editorOverviewRuler.border": "#111",
+    "editorOverviewRuler.border": [
+      "#111"
+    ],
     "panel.background": "#151515",
     "panel.border": "#151515",
     "panelTitle.activeBorder": "#BDE46F",

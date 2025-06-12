@@ -92,7 +92,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       'list.inactiveSelectionBackground': activeBackground,
       'list.activeSelectionBackground': activeBackground,
       'list.inactiveFocusBackground': background,
-      'list.focusBackground': pick({ light: '#1c6b4820', dark: '#BDE46F20' }),
+      'list.focusBackground': black ? '#BDE46F40' : pick({ light: '#1c6b4820', dark: '#BDE46F20' }),
       'list.focusForeground': primary,
 
       'tree.indentGuidesStroke': pick({ light: primer.gray[2], dark: primer.gray[1] }),
