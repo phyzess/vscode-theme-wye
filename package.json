@@ -2,7 +2,7 @@
   "name": "wye",
   "displayName": "Wye",
   "description": "wye change theme~",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "icon": "icon.jpg",
   "publisher": "phyzess",
   "license": "MIT",
@@ -67,5 +67,8 @@
     "esno": "^4.8.0",
     "nodemon": "^3.1.10",
     "typescript": "^5.8.3"
+  },
+  "volta": {
+    "node": "24.2.0"
   }
 }
