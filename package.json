@@ -2,7 +2,7 @@
   "name": "wye",
   "displayName": "Wye",
   "description": "wye change theme~",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "icon": "icon.jpg",
   "publisher": "phyzess",
   "license": "MIT",
@@ -16,7 +16,8 @@
     "theme",
     "wye",
     "light",
-    "dark"
+    "dark",
+    "black"
   ],
   "files": [
     "themes"
