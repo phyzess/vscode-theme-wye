@@ -35,26 +35,15 @@ const themeContent = JSON.stringify(
   2
 ) + '\n'
 
-// Create directories and write theme files
-Promise.all([
-  fs.mkdir('./zed-themes', { recursive: true }),
-  fs.mkdir('./extensions/zed/themes', { recursive: true }),
-])
-  .then(() =>
-    Promise.all([
-      // Write to zed-themes directory (for reference)
-      fs.writeFile('./zed-themes/wye.json', themeContent),
-      // Write to Zed extension directory (for publishing)
-      fs.writeFile('./extensions/zed/themes/wye.json', themeContent),
-    ])
-  )
+// Create directory and write theme file
+fs.mkdir('./themes', { recursive: true })
+  .then(() => fs.writeFile('./themes/wye.json', themeContent))
   .then(() => {
-    console.log('✅ Zed themes generated successfully!')
-    console.log('   - zed-themes/wye.json (reference)')
-    console.log('   - extensions/zed/themes/wye.json (for Zed extension)')
+    console.log('✅ Zed theme generated successfully!')
+    console.log('   - themes/wye.json (for Zed extension)')
   })
   .catch((err) => {
-    console.error('❌ Error generating Zed themes:', err)
+    console.error('❌ Error generating Zed theme:', err)
     process.exit(1)
   })
 

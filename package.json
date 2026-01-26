@@ -19,34 +19,34 @@
     "dark"
   ],
   "files": [
-    "themes"
+    "vscode-themes"
   ],
   "contributes": {
     "themes": [
       {
         "label": "Wye Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/wye-dark.json"
+        "path": "./vscode-themes/wye-dark.json"
       },
       {
         "label": "Wye Light",
         "uiTheme": "vs",
-        "path": "./themes/wye-light.json"
+        "path": "./vscode-themes/wye-light.json"
       },
       {
         "label": "Wye Black",
         "uiTheme": "vs-dark",
-        "path": "./themes/wye-black.json"
+        "path": "./vscode-themes/wye-black.json"
       },
       {
         "label": "Wye Light Soft",
         "uiTheme": "vs",
-        "path": "./themes/wye-light-soft.json"
+        "path": "./vscode-themes/wye-light-soft.json"
       },
       {
         "label": "Wye Dark Soft",
         "uiTheme": "vs-dark",
-        "path": "./themes/wye-dark-soft.json"
+        "path": "./vscode-themes/wye-dark-soft.json"
       }
     ]
   },

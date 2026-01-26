@@ -58,10 +58,15 @@ pnpm run dev
 **Zed:**
 1. Copy theme file:
    ```bash
-   cp extensions/zed/themes/wye.json ~/.config/zed/themes/
+   cp themes/wye.json ~/.config/zed/themes/
    ```
 2. Restart Zed
 3. Select theme
+
+Or install as dev extension:
+1. Open Zed
+2. Press Cmd+Shift+P → "zed: install dev extension"
+3. Select this repository directory
 
 ### Publish
 

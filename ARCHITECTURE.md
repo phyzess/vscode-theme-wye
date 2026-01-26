@@ -19,28 +19,33 @@ vscode-theme-wye/
 │   ├── zed-theme.ts             # Zed theme generator
 │   └── zed-index.ts             # Zed build script
 │
-├── themes/                       # Generated VSCode themes (5 files)
+├── vscode-themes/                # Generated VSCode themes (5 files)
 │   ├── wye-light.json
 │   ├── wye-dark.json
 │   ├── wye-black.json
 │   ├── wye-light-soft.json
 │   └── wye-dark-soft.json
 │
-├── extensions/zed/               # Zed extension (for publishing)
-│   ├── extension.toml           # Zed extension metadata
-│   ├── README.md                # Zed-specific documentation
-│   └── themes/
-│       └── wye.json             # All 5 Zed theme variants in one file
+├── themes/                       # Generated Zed themes (at root for Zed)
+│   └── wye.json                 # All 5 Zed theme variants in one file
 │
-├── zed-themes/                   # Generated Zed themes (reference copy)
-│   └── wye.json
-│
+├── extension.toml                # Zed extension metadata (at root)
 ├── package.json                  # VSCode extension metadata & scripts
 ├── .vscodeignore                # VSCode publish exclusions
 ├── README.md                     # Main documentation
 ├── PUBLISHING.md                 # Publishing guide
 └── ARCHITECTURE.md               # This file
 ```
+
+### Why This Structure?
+
+**VSCode**: Packages and uploads extensions to the marketplace. The `.vscodeignore` file excludes Zed-specific files (`extension.toml`, `themes/`).
+
+**Zed**: Uses a **submodule-based publishing system**. The entire repository is added as a git submodule to `zed-industries/extensions`. Zed expects:
+- `extension.toml` at the root
+- Theme files in `themes/` directory at the root
+
+This structure allows both platforms to coexist in the same repository while maintaining their respective conventions.
 
 ## Color System
 
@@ -72,18 +77,18 @@ The project supports 5 theme variants:
 
 ### VSCode Build (`src/index.ts`)
 
-Generates 5 separate JSON files in `themes/` directory:
+Generates 5 separate JSON files in `vscode-themes/` directory:
 
 ```bash
 pnpm run build
 ```
 
 Output:
-- `themes/wye-light.json`
-- `themes/wye-dark.json`
-- `themes/wye-black.json`
-- `themes/wye-light-soft.json`
-- `themes/wye-dark-soft.json`
+- `vscode-themes/wye-light.json`
+- `vscode-themes/wye-dark.json`
+- `vscode-themes/wye-black.json`
+- `vscode-themes/wye-light-soft.json`
+- `vscode-themes/wye-dark-soft.json`
 
 ### Zed Build (`src/zed-index.ts`)
 
@@ -94,8 +99,7 @@ pnpm run build:zed
 ```
 
 Output:
-- `zed-themes/wye.json` (reference)
-- `extensions/zed/themes/wye.json` (for publishing)
+- `themes/wye.json` (at root, for Zed extension)
 
 ### Combined Build
 
@@ -144,9 +148,11 @@ Runs both VSCode and Zed builds.
 
 **What's excluded**:
 - `src/` (source code)
-- `extensions/` (Zed extension)
+- `extension.toml` (Zed extension config)
+- `themes/` (Zed theme files)
 - `node_modules/`
 - Build configuration files
+- Documentation files (except README, CHANGELOG, LICENSE)
 
 **Command**: `pnpm run release`
 
@@ -154,12 +160,23 @@ Runs both VSCode and Zed builds.
 
 **Target**: [Zed Extensions Repository](https://github.com/zed-industries/extensions)
 
-**What's included**:
-- `extensions/zed/extension.toml`
-- `extensions/zed/README.md`
-- `extensions/zed/themes/wye.json`
+**Method**: Git submodule (entire repository)
 
-**Process**: Submit PR to zed-industries/extensions repository
+**What Zed uses**:
+- `extension.toml` (at root)
+- `themes/wye.json` (at root)
+
+**What Zed ignores**:
+- `vscode-themes/` (VSCode-specific)
+- `src/` (source code)
+- `package.json` (VSCode-specific)
+
+**Process**:
+1. Add this repository as a submodule to `zed-industries/extensions`
+2. Update `extensions.toml` with version info
+3. Submit PR to zed-industries/extensions repository
+
+See [PUBLISHING.md](./PUBLISHING.md) for detailed instructions.
 
 ## Development Workflow
 
@@ -181,11 +198,13 @@ Runs both VSCode and Zed builds.
 ### Version Update
 
 1. Update version in `package.json`
-2. Update version in `extensions/zed/extension.toml`
+2. Update version in `extension.toml` (at root)
 3. Update `CHANGELOG.md`
 4. Run `pnpm run build:all`
 5. Commit and tag: `git tag v0.7.1`
-6. Publish to both platforms
+6. Push with tags: `git push --tags`
+7. Publish to VSCode Marketplace: `pnpm run release`
+8. Update submodule in zed-industries/extensions and create PR
 
 ## Benefits of This Architecture
 

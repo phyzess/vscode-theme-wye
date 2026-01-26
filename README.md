@@ -24,8 +24,6 @@ Install from the [Visual Studio Marketplace](https://marketplace.visualstudio.co
 4. Search for "Wye"
 5. Click Install
 
-Or see the [Zed extension README](./extensions/zed/README.md) for more details.
-
 ## 🛠️ Development
 
 This repository supports both VSCode and Zed theme generation from a single source.
@@ -65,19 +63,16 @@ vscode-theme-wye/
 │   ├── index.ts             # VSCode build script
 │   ├── zed-theme.ts         # Zed theme generator
 │   └── zed-index.ts         # Zed build script
-├── themes/                   # Generated VSCode themes
+├── vscode-themes/            # Generated VSCode themes
 │   ├── wye-light.json
 │   ├── wye-dark.json
 │   ├── wye-black.json
 │   ├── wye-light-soft.json
 │   └── wye-dark-soft.json
-├── extensions/zed/           # Zed extension (for publishing)
-│   ├── extension.toml       # Zed extension config
-│   ├── README.md            # Zed-specific README
-│   └── themes/
-│       └── wye.json         # All 5 Zed theme variants
-└── zed-themes/              # Generated Zed themes (reference)
-    └── wye.json
+├── themes/                   # Generated Zed themes
+│   └── wye.json             # All 5 Zed theme variants
+├── extension.toml           # Zed extension config (at root)
+└── package.json             # VSCode extension config
 ```
 
 ## 📦 Publishing
@@ -96,21 +91,22 @@ The `.vscodeignore` file ensures only necessary files are included in the VSCode
 
 ### Publishing to Zed Extensions
 
-The Zed extension is located in `extensions/zed/` directory. To publish:
+Zed uses a **submodule-based publishing system**. To publish:
 
-1. Fork the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository
-2. Add this repository as a submodule in the `extensions/` directory
-3. Update the `extensions.toml` file
-4. Submit a pull request
+1. Build Zed themes: `pnpm run build:zed`
+2. Commit and push your changes
+3. Fork the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository
+4. Add this entire repository as a submodule: `git submodule add https://github.com/phyzess/vscode-theme-wye.git extensions/wye`
+5. Update the `extensions.toml` file with version info
+6. Submit a pull request
 
-See the [Zed extension README](./extensions/zed/README.md) for detailed instructions.
+See **[PUBLISHING.md](./PUBLISHING.md)** for detailed step-by-step instructions.
 
 ## 📚 Documentation
 
 - **[QUICK_START.md](./QUICK_START.md)** - Quick start guide for users and developers
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Project architecture and design philosophy
-- **[PUBLISHING.md](./PUBLISHING.md)** - How to publish to VSCode Marketplace and Zed Extensions
-- **[extensions/zed/README.md](./extensions/zed/README.md)** - Zed extension documentation
+- **[PUBLISHING.md](./PUBLISHING.md)** - Detailed publishing guide for both VSCode and Zed
 - **[CHANGELOG.md](./CHANGELOG.md)** - Version history and changes
 
 ## 🙏 Credits

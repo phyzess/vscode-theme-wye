@@ -1,11 +1,11 @@
 import { promises as fs } from 'node:fs'
 import getTheme from './theme'
 
-fs.mkdir('./themes', { recursive: true })
+fs.mkdir('./vscode-themes', { recursive: true })
   .then(() =>
     Promise.all([
       fs.writeFile(
-        './themes/wye-light.json',
+        './vscode-themes/wye-light.json',
         `${JSON.stringify(
           getTheme({
             style: 'light',
@@ -16,7 +16,7 @@ fs.mkdir('./themes', { recursive: true })
         )}\n`
       ),
       fs.writeFile(
-        './themes/wye-dark.json',
+        './vscode-themes/wye-dark.json',
         `${JSON.stringify(
           getTheme({
             style: 'dark',
@@ -27,7 +27,7 @@ fs.mkdir('./themes', { recursive: true })
         )}\n`
       ),
       fs.writeFile(
-        './themes/wye-black.json',
+        './vscode-themes/wye-black.json',
         `${JSON.stringify(
           getTheme({
             style: 'dark',
@@ -39,7 +39,7 @@ fs.mkdir('./themes', { recursive: true })
         )}\n`
       ),
       fs.writeFile(
-        './themes/wye-light-soft.json',
+        './vscode-themes/wye-light-soft.json',
         `${JSON.stringify(
           getTheme({
             style: 'light',
@@ -51,7 +51,7 @@ fs.mkdir('./themes', { recursive: true })
         )}\n`
       ),
       fs.writeFile(
-        './themes/wye-dark-soft.json',
+        './vscode-themes/wye-dark-soft.json',
         `${JSON.stringify(
           getTheme({
             style: 'dark',

@@ -17,8 +17,15 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 
 # Zed extension files (exclude from VSCode package)
-extensions/**
-zed-themes/**
+extension.toml
+themes/**
+
+# Documentation (keep only essential ones)
+ARCHITECTURE.md
+PUBLISHING.md
+QUICK_START.md
+MIGRATION_COMPLETE.md
+VERIFICATION_REPORT.md
 
 # Development files
 .DS_Store

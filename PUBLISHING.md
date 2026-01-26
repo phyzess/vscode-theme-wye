@@ -57,33 +57,49 @@ This document describes how to publish the Wye theme to both VSCode Marketplace 
 ### What Gets Published
 
 The `.vscodeignore` file controls what's included:
-- ✅ `themes/` directory (VSCode theme files)
+- ✅ `vscode-themes/` directory (VSCode theme files)
 - ✅ `README.md`
 - ✅ `CHANGELOG.md`
 - ✅ `LICENSE`
 - ✅ `icon.jpg`
 - ❌ `src/` (source code)
-- ❌ `extensions/` (Zed extension)
+- ❌ `extension.toml` (Zed extension config)
+- ❌ `themes/` (Zed theme files)
 - ❌ `node_modules/`
 - ❌ Build configuration files
 
 ## Publishing to Zed Extensions
 
-Zed extensions are published through the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository.
+Zed extensions are published through the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository using **git submodules**.
+
+### Important: Zed's Submodule-Based Publishing
+
+Unlike VSCode, Zed extensions are **not packaged and uploaded**. Instead:
+- Your entire repository is added as a **git submodule** to `zed-industries/extensions`
+- The root of your repository must contain `extension.toml`
+- Themes must be in the `themes/` directory at the root
+- Zed will build and serve your extension directly from your repository
 
 ### First-time Setup
 
-1. Fork the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository
+1. Ensure your repository has a valid license (required by Zed):
+   - Accepted licenses: Apache 2.0, BSD 3-Clause, GNU GPLv3, GNU LGPLv3, MIT, zlib
+   - License file must be at the root of your repository
 
-2. Clone your fork:
+2. Fork the [zed-industries/extensions](https://github.com/zed-industries/extensions) repository to your **personal GitHub account** (not an organization)
+   - This allows Zed staff to push changes to your PR if needed
+
+3. Clone your fork:
    ```bash
    git clone https://github.com/<your-username>/extensions.git zed-extensions
    cd zed-extensions
+   git submodule init
+   git submodule update
    ```
 
 ### Publishing Process
 
-1. Update version in `extensions/zed/extension.toml`
+1. Update version in `extension.toml` (at the root of vscode-theme-wye)
 
 2. Build the Zed themes:
    ```bash
@@ -91,51 +107,90 @@ Zed extensions are published through the [zed-industries/extensions](https://git
    pnpm run build:zed
    ```
 
-3. Copy the extension to the Zed extensions repository:
+3. Commit and push your theme repository:
    ```bash
-   # In the zed-extensions repository
-   mkdir -p extensions/wye
-   cp -r /path/to/vscode-theme-wye/extensions/zed/* extensions/wye/
+   git add themes/wye.json extension.toml
+   git commit -m "Release v0.7.1"
+   git push origin main
    ```
 
-4. Test locally:
+4. Add your repository as a submodule to zed-extensions:
    ```bash
-   # In the zed-extensions repository
-   cargo run --release
-   ```
+   cd /path/to/zed-extensions
 
-5. Commit and push:
-   ```bash
+   # Add your repo as a submodule (use HTTPS URL, not SSH)
+   git submodule add https://github.com/phyzess/vscode-theme-wye.git extensions/wye
    git add extensions/wye
+   ```
+
+5. Update `extensions.toml` in the zed-extensions repository:
+   ```bash
+   # Add this entry to extensions.toml (keep alphabetical order)
+   [wye]
+   submodule = "extensions/wye"
+   version = "0.7.1"
+   ```
+
+6. Sort the extensions file:
+   ```bash
+   pnpm sort-extensions
+   ```
+
+7. Commit and push:
+   ```bash
+   git add extensions.toml .gitmodules
    git commit -m "Add Wye theme v0.7.1"
    git push origin main
    ```
 
-6. Create a Pull Request to [zed-industries/extensions](https://github.com/zed-industries/extensions)
+8. Create a Pull Request to [zed-industries/extensions](https://github.com/zed-industries/extensions)
+
+### Updating an Existing Extension
+
+1. Update your theme repository with new changes and push
+
+2. In the zed-extensions repository:
+   ```bash
+   cd /path/to/zed-extensions
+
+   # Update the submodule to the latest commit
+   git submodule update --remote extensions/wye
+
+   # Update the version in extensions.toml
+   # Change version = "0.7.1" to version = "0.7.2"
+
+   # Commit and push
+   git add extensions/wye extensions.toml
+   git commit -m "Update Wye theme to v0.7.2"
+   git push origin main
+   ```
+
+3. Create a Pull Request
 
 ### What Gets Published
 
-The `extensions/zed/` directory contains:
-- ✅ `extension.toml` (Zed extension metadata)
-- ✅ `README.md` (Zed-specific documentation)
-- ✅ `themes/wye.json` (all 5 theme variants)
+The entire repository is published as a submodule, but Zed only uses:
+- ✅ `extension.toml` (at root - Zed extension metadata)
+- ✅ `themes/wye.json` (at root - all 5 theme variants)
+- ❌ `vscode-themes/` (ignored by Zed)
+- ❌ `src/` (source code - not needed at runtime)
 
 ## Version Management
 
 Keep versions synchronized between:
 - `package.json` (VSCode)
-- `extensions/zed/extension.toml` (Zed)
+- `extension.toml` (Zed - at root)
 
 ### Recommended Workflow
 
-1. Update version in both files
+1. Update version in both `package.json` and `extension.toml`
 2. Update `CHANGELOG.md`
 3. Build both themes: `pnpm run build:all`
-4. Commit changes
+4. Commit changes to your repository
 5. Create a git tag: `git tag v0.7.1`
 6. Push with tags: `git push --tags`
-7. Publish to VSCode Marketplace
-8. Publish to Zed Extensions
+7. Publish to VSCode Marketplace (using `pnpm run release`)
+8. Update the submodule in zed-industries/extensions and create a PR
 
 ## Troubleshooting
 
@@ -147,9 +202,11 @@ Keep versions synchronized between:
 
 ### Zed Publishing Issues
 
-- **Theme not loading**: Validate JSON with `jq . extensions/zed/themes/wye.json`
+- **Theme not loading**: Validate JSON with `jq . themes/wye.json`
 - **Schema errors**: Check against [Zed theme schema](https://zed.dev/schema/themes/v0.2.0.json)
-- **PR rejected**: Follow Zed's contribution guidelines
+- **Submodule URL must be HTTPS**: Use `https://github.com/...` not `git@github.com:...`
+- **License validation failed**: Ensure you have a valid license file at the root
+- **PR rejected**: Follow Zed's contribution guidelines and ensure `pnpm sort-extensions` was run
 
 ## Resources
 
