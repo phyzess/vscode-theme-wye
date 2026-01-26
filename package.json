@@ -56,6 +56,8 @@
   },
   "scripts": {
     "build": "esno src/index.ts",
+    "build:zed": "esno src/zed-index.ts",
+    "build:all": "pnpm run build && pnpm run build:zed",
     "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
     "vscode:prepublish": "pnpm run build",
     "release": "pnpm run build && pnpm dlx bumpp --commit --tag --push --all && vsce publish --no-dependencies"

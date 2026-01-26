@@ -2,3 +2,8 @@
 .DS_Store
 node_modules/
 .vscode/symbols.json
+
+# Generated theme files (keep in git for reference, but regenerate when needed)
+# themes/
+# zed-themes/
+# extensions/zed/themes/

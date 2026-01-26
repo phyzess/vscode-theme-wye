@@ -1,4 +1,25 @@
+# VSCode extension ignore file
+# Files and directories to exclude when publishing to VSCode marketplace
+
 .vscode/**
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
+
+# Source files
+src/**
+tsconfig.json
+dprint.json
+
+# Build tools
+node_modules/**
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# Zed extension files (exclude from VSCode package)
+extensions/**
+zed-themes/**
+
+# Development files
+.DS_Store
+*.vsix

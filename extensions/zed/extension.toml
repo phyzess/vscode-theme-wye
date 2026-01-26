@@ -1,0 +1,8 @@
+id = "wye"
+name = "Wye"
+version = "0.7.1"
+schema_version = 1
+authors = ["phyzess <[email protected]>"]
+description = "Wye theme for Zed - A soothing color scheme with light and dark variants"
+repository = "https://github.com/phyzess/vscode-theme-wye"
+
