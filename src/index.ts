@@ -27,6 +27,18 @@ fs.mkdir('./vscode-themes', { recursive: true })
         )}\n`
       ),
       fs.writeFile(
+        './vscode-themes/wye-dark-italic.json',
+        `${JSON.stringify(
+          getTheme({
+            style: 'dark',
+            name: 'Wye Dark Italic',
+            italic: true,
+          }),
+          null,
+          2
+        )}\n`
+      ),
+      fs.writeFile(
         './vscode-themes/wye-black.json',
         `${JSON.stringify(
           getTheme({

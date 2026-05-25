@@ -6,6 +6,7 @@ A soothing color scheme for **VSCode** and **Zed** editors, based on [GitHub The
 
 - **Wye Light** - Clean light theme with white background
 - **Wye Dark** - Dark theme with balanced contrast
+- **Wye Dark Italic** - Dark theme with italic keyword styling for script-like fonts
 - **Wye Black** - Pure black background for OLED displays
 - **Wye Light Soft** - Light theme with softer, warmer background
 - **Wye Dark Soft** - Dark theme with softer contrast
@@ -66,6 +67,7 @@ vscode-theme-wye/
 ├── vscode-themes/            # Generated VSCode themes
 │   ├── wye-light.json
 │   ├── wye-dark.json
+│   ├── wye-dark-italic.json
 │   ├── wye-black.json
 │   ├── wye-light-soft.json
 │   └── wye-dark-soft.json

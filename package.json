@@ -2,7 +2,7 @@
   "name": "wye",
   "displayName": "Wye",
   "description": "wye change theme~",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "icon": "icon.jpg",
   "publisher": "phyzess",
   "license": "MIT",
@@ -29,6 +29,11 @@
         "path": "./vscode-themes/wye-dark.json"
       },
       {
+        "label": "Wye Dark Italic",
+        "uiTheme": "vs-dark",
+        "path": "./vscode-themes/wye-dark-italic.json"
+      },
+      {
         "label": "Wye Light",
         "uiTheme": "vs",
         "path": "./vscode-themes/wye-light.json"
@@ -52,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:phyzess/vscode-theme-wye.git"
+    "url": "https://github.com/phyzess/vscode-theme-wye.git"
   },
   "scripts": {
     "build": "esno src/index.ts",

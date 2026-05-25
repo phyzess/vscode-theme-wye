@@ -2,7 +2,7 @@ import { WyeThemes } from './colors'
 import { getColors } from './primer'
 import { toArray } from './utils'
 
-export default function getTheme({ style, name, soft = false, black = false }) {
+export default function getTheme({ style, name, soft = false, black = false, italic = false }) {
   // Usage: `pick({ light: "lightblue", dark: "darkblue" })`
   const pick = (options) => options[style]
 
@@ -22,6 +22,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
   const selectionBackgroundInActive = pick({ light: '#22222208', dark: '#2f3e46' })
   const selectionBackgroundActive = pick({ light: '#22222215', dark: '#52796f' })
   const selectionBackground = pick({ light: '#22222215', dark: '#252f34' })
+  const italicStyle = italic ? { fontStyle: 'italic' } : {}
 
   const theme = {
     name,
@@ -319,12 +320,14 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       {
         scope: ['keyword', 'storage.type.class.jsdoc'],
         settings: {
+          ...italicStyle,
           foreground: wye('keyword'),
         },
       },
       {
         scope: ['storage', 'storage.type', 'support.type.builtin', 'constant.language.undefined', 'constant.language.null'],
         settings: {
+          ...italicStyle,
           foreground: wye('builtin'),
         },
       },
@@ -482,6 +485,7 @@ export default function getTheme({ style, name, soft = false, black = false }) {
       {
         scope: ['constant.language.boolean', 'constant.language'],
         settings: {
+          ...italicStyle,
           foreground: wye('boolean'),
         },
       },
