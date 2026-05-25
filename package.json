@@ -2,7 +2,7 @@
   "name": "wye",
   "displayName": "Wye",
   "description": "wye change theme~",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "icon": "icon.jpg",
   "publisher": "phyzess",
   "license": "MIT",
@@ -24,6 +24,16 @@
   "contributes": {
     "themes": [
       {
+        "label": "Wye Light",
+        "uiTheme": "vs",
+        "path": "./vscode-themes/wye-light.json"
+      },
+      {
+        "label": "Wye Light Italic",
+        "uiTheme": "vs",
+        "path": "./vscode-themes/wye-light-italic.json"
+      },
+      {
         "label": "Wye Dark",
         "uiTheme": "vs-dark",
         "path": "./vscode-themes/wye-dark.json"
@@ -34,14 +44,14 @@
         "path": "./vscode-themes/wye-dark-italic.json"
       },
       {
-        "label": "Wye Light",
-        "uiTheme": "vs",
-        "path": "./vscode-themes/wye-light.json"
-      },
-      {
         "label": "Wye Black",
         "uiTheme": "vs-dark",
         "path": "./vscode-themes/wye-black.json"
+      },
+      {
+        "label": "Wye Black Italic",
+        "uiTheme": "vs-dark",
+        "path": "./vscode-themes/wye-black-italic.json"
       },
       {
         "label": "Wye Light Soft",
@@ -49,9 +59,19 @@
         "path": "./vscode-themes/wye-light-soft.json"
       },
       {
+        "label": "Wye Light Soft Italic",
+        "uiTheme": "vs",
+        "path": "./vscode-themes/wye-light-soft-italic.json"
+      },
+      {
         "label": "Wye Dark Soft",
         "uiTheme": "vs-dark",
         "path": "./vscode-themes/wye-dark-soft.json"
+      },
+      {
+        "label": "Wye Dark Soft Italic",
+        "uiTheme": "vs-dark",
+        "path": "./vscode-themes/wye-dark-soft-italic.json"
       }
     ]
   },

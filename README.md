@@ -5,11 +5,15 @@ A soothing color scheme for **VSCode** and **Zed** editors, based on [GitHub The
 ## 🎨 Theme Variants
 
 - **Wye Light** - Clean light theme with white background
+- **Wye Light Italic** - Light theme with italic keyword styling for script-like fonts
 - **Wye Dark** - Dark theme with balanced contrast
 - **Wye Dark Italic** - Dark theme with italic keyword styling for script-like fonts
 - **Wye Black** - Pure black background for OLED displays
+- **Wye Black Italic** - Pure black theme with italic keyword styling
 - **Wye Light Soft** - Light theme with softer, warmer background
+- **Wye Light Soft Italic** - Soft light theme with italic keyword styling
 - **Wye Dark Soft** - Dark theme with softer contrast
+- **Wye Dark Soft Italic** - Soft dark theme with italic keyword styling
 
 ## 📦 Installation
 
@@ -66,13 +70,17 @@ vscode-theme-wye/
 │   └── zed-index.ts         # Zed build script
 ├── vscode-themes/            # Generated VSCode themes
 │   ├── wye-light.json
+│   ├── wye-light-italic.json
 │   ├── wye-dark.json
 │   ├── wye-dark-italic.json
 │   ├── wye-black.json
+│   ├── wye-black-italic.json
 │   ├── wye-light-soft.json
-│   └── wye-dark-soft.json
+│   ├── wye-light-soft-italic.json
+│   ├── wye-dark-soft.json
+│   └── wye-dark-soft-italic.json
 ├── themes/                   # Generated Zed themes
-│   └── wye.json             # All 5 Zed theme variants
+│   └── wye.json             # All 10 Zed theme variants
 ├── extension.toml           # Zed extension config (at root)
 └── package.json             # VSCode extension config
 ```

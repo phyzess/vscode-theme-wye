@@ -1,6 +1,6 @@
 id = "wye"
 name = "Wye"
-version = "0.7.2"
+version = "0.8.0"
 schema_version = 1
 authors = ["phyzess <[email protected]>"]
 description = "Wye theme for Zed - A soothing color scheme with light and dark variants"

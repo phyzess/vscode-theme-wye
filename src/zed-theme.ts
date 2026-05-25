@@ -1,7 +1,7 @@
 import { WyeThemes } from './colors'
 import { getColors } from './primer'
 
-export function getZedTheme({ style, name, soft = false, black = false }) {
+export function getZedTheme({ style, name, soft = false, black = false, italic = false }) {
   // Usage: `pick({ light: "lightblue", dark: "darkblue" })`
   const pick = (options) => options[style]
 
@@ -19,6 +19,7 @@ export function getZedTheme({ style, name, soft = false, black = false }) {
   const activeBackground = black ? '#050505' : soft ? wye('lowActiveBackground') : wye('activeBackground')
 
   const appearance = style === 'light' ? 'light' : 'dark'
+  const italicStyle = italic ? { font_style: 'italic' } : {}
 
   return {
     name,
@@ -226,9 +227,11 @@ export function getZedTheme({ style, name, soft = false, black = false }) {
               color: wye('number'),
             },
             boolean: {
+              ...italicStyle,
               color: wye('boolean'),
             },
             constant: {
+              ...italicStyle,
               color: wye('constant'),
             },
             variable: {
@@ -241,6 +244,7 @@ export function getZedTheme({ style, name, soft = false, black = false }) {
               color: wye('function'),
             },
             keyword: {
+              ...italicStyle,
               color: wye('keyword'),
             },
             operator: {
@@ -308,6 +312,7 @@ export function getZedTheme({ style, name, soft = false, black = false }) {
               color: foreground,
             },
             preproc: {
+              ...italicStyle,
               color: wye('builtin'),
             },
             hint: {
@@ -326,5 +331,4 @@ export function getZedTheme({ style, name, soft = false, black = false }) {
     ],
   }
 }
-
 

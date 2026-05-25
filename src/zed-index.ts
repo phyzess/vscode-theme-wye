@@ -1,35 +1,12 @@
 import { promises as fs } from 'node:fs'
+import { themeVariants } from './variants'
 import { getZedTheme } from './zed-theme'
 
 const themeContent = JSON.stringify(
   {
     name: 'Wye',
     author: 'phyzess',
-    themes: [
-      ...getZedTheme({
-        style: 'light',
-        name: 'Wye Light',
-      }).themes,
-      ...getZedTheme({
-        style: 'dark',
-        name: 'Wye Dark',
-      }).themes,
-      ...getZedTheme({
-        style: 'dark',
-        name: 'Wye Black',
-        black: true,
-      }).themes,
-      ...getZedTheme({
-        style: 'light',
-        name: 'Wye Light Soft',
-        soft: true,
-      }).themes,
-      ...getZedTheme({
-        style: 'dark',
-        name: 'Wye Dark Soft',
-        soft: true,
-      }).themes,
-    ],
+    themes: themeVariants.flatMap((variant) => getZedTheme(variant).themes),
   },
   null,
   2
@@ -46,4 +23,3 @@ fs.mkdir('./themes', { recursive: true })
     console.error('❌ Error generating Zed theme:', err)
     process.exit(1)
   })
-
